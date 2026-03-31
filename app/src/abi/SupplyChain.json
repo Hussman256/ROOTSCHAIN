@@ -1,0 +1,126 @@
+[
+  {
+    "type": "function",
+    "name": "createProduct",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      { "name": "name", "type": "string" },
+      { "name": "shipper", "type": "address" },
+      { "name": "customsOfficer", "type": "address" },
+      { "name": "buyer", "type": "address" },
+      { "name": "arbiter", "type": "address" }
+    ],
+    "outputs": [{ "name": "", "type": "uint256" }]
+  },
+  {
+    "type": "function",
+    "name": "shipProduct",
+    "stateMutability": "nonpayable",
+    "inputs": [{ "name": "productId", "type": "uint256" }],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "clearCustoms",
+    "stateMutability": "nonpayable",
+    "inputs": [{ "name": "productId", "type": "uint256" }],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "confirmDelivery",
+    "stateMutability": "nonpayable",
+    "inputs": [{ "name": "productId", "type": "uint256" }],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "raiseDispute",
+    "stateMutability": "nonpayable",
+    "inputs": [{ "name": "productId", "type": "uint256" }],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "resolveDispute",
+    "stateMutability": "nonpayable",
+    "inputs": [{ "name": "productId", "type": "uint256" }],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "getProduct",
+    "stateMutability": "view",
+    "inputs": [{ "name": "productId", "type": "uint256" }],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "components": [
+          { "name": "id", "type": "uint256" },
+          { "name": "name", "type": "string" },
+          { "name": "state", "type": "uint8" },
+          { "name": "manufacturer", "type": "address" },
+          { "name": "shipper", "type": "address" },
+          { "name": "customsOfficer", "type": "address" },
+          { "name": "buyer", "type": "address" },
+          { "name": "arbiter", "type": "address" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getProductState",
+    "stateMutability": "view",
+    "inputs": [{ "name": "productId", "type": "uint256" }],
+    "outputs": [{ "name": "", "type": "string" }]
+  },
+  {
+    "type": "function",
+    "name": "productCount",
+    "stateMutability": "view",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "uint256" }]
+  },
+  {
+    "type": "event",
+    "name": "ProductCreated",
+    "inputs": [
+      { "name": "productId", "type": "uint256", "indexed": true },
+      { "name": "name", "type": "string", "indexed": false },
+      { "name": "manufacturer", "type": "address", "indexed": true }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "StateChanged",
+    "inputs": [
+      { "name": "productId", "type": "uint256", "indexed": true },
+      { "name": "previousState", "type": "uint8", "indexed": false },
+      { "name": "newState", "type": "uint8", "indexed": false },
+      { "name": "triggeredBy", "type": "address", "indexed": true }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "Unauthorized",
+    "inputs": [
+      { "name": "caller", "type": "address" },
+      { "name": "expectedRole", "type": "string" }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "InvalidStateTransition",
+    "inputs": [
+      { "name": "productId", "type": "uint256" },
+      { "name": "currentState", "type": "uint8" }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ProductDoesNotExist",
+    "inputs": [{ "name": "productId", "type": "uint256" }]
+  }
+]

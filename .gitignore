@@ -1,0 +1,16 @@
+# Environment variables (never commit these)
+.env
+.env.local
+
+# Hardhat
+node_modules/
+artifacts/
+cache/
+typechain-types/
+
+# Frontend
+app/node_modules/
+app/dist/
+
+# Misc
+.DS_Store
