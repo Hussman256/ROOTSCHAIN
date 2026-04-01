@@ -28,6 +28,7 @@ export default function CreateProduct() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!isValid) return;
+    reset();
     create(
       name.trim(),
       shipper as `0x${string}`,

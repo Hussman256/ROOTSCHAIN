@@ -1,4 +1,5 @@
 import { useAccount, useConnect, useDisconnect, useChainId } from "wagmi";
+import { walletConnectProjectId } from "../config/wagmi";
 
 export default function ConnectButton() {
   const { address, isConnected } = useAccount();
@@ -46,12 +47,13 @@ export default function ConnectButton() {
           MetaMask
         </button>
       )}
-      {wc && (
+      {wc && walletConnectProjectId && (
         <button
           onClick={() => connect({ connector: wc })}
-          className="btn-secondary text-xs px-3 py-1.5"
+          disabled={isPending}
+          className="btn-secondary text-xs px-3 py-1.5 disabled:opacity-50"
         >
-          WalletConnect
+          {isPending ? "Connecting..." : "WalletConnect"}
         </button>
       )}
     </div>

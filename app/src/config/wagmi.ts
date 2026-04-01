@@ -27,7 +27,7 @@ export const rskTestnet = defineChain({
   testnet: true,
 });
 
-const walletConnectProjectId =
+export const walletConnectProjectId =
   import.meta.env.VITE_WALLETCONNECT_PROJECT_ID ?? "";
 
 export const wagmiConfig = createConfig({
