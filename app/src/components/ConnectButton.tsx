@@ -3,7 +3,7 @@ import { walletConnectProjectId } from "../config/wagmi";
 
 export default function ConnectButton() {
   const { address, isConnected } = useAccount();
-  const { connectors, connect } = useConnect();
+  const { connectors, connect, isPending } = useConnect();
   const { disconnect } = useDisconnect();
   const chainId = useChainId();
 
