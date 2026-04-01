@@ -84,7 +84,7 @@ export function useCreateProduct() {
     isLoading: isConfirming,
     isSuccess,
     error: receiptError,
-  } = useWaitForTransactionReceipt({ hash });
+  } = useWaitForTransactionReceipt({ hash, pollingInterval: 3_000 });
 
   function create(
     name: string,
@@ -98,6 +98,8 @@ export function useCreateProduct() {
       abi: SupplyChainABI,
       functionName: "createProduct",
       args: [name, shipper, customsOfficer, buyer, arbiter],
+      gas: 300_000n,
+      gasPrice: 60_000_000n,
     });
   }
 
