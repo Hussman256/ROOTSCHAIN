@@ -45,4 +45,7 @@ module.exports = {
     enabled: process.env.REPORT_GAS === "true",
     currency: "USD",
   },
+  sourcify: {
+    enabled: false,
+  },
 };
